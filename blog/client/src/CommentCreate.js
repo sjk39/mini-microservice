@@ -7,12 +7,14 @@ const App = ({ postId }) => {
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+        await axios.post(`http://posts.com/posts/${postId}/comments`, {
             content
         }).catch((err) => {
             console.log(err.message);
           });
         setContent('');
+        //Refresh Page
+        window.location.reload();
     };
 
 return <div><form onSubmit={onSubmit}>

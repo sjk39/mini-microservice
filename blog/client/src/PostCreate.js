@@ -6,13 +6,15 @@ const PostCreate = () => {
         // Prevent default form submission 
         event.preventDefault();
 
-        await axios.post('http://localhost:4000/posts', {
+        await axios.post('http://posts.com/posts/create', {
             title 
         }).catch((err) => {
             console.log(err.message);
           });
         // Clear input after submission
         setTitle('');
+        //Refresh Page
+        window.location.reload();
     };
     return <div>
         <form onSubmit={onSubmit}>
